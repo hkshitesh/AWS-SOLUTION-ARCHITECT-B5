@@ -20,3 +20,9 @@ sudo ./aws/install
     echo $VPC
 
 
+    SUBNET=$(aws ec2 describe-subnets \
+      --filters Name=tag:Name,Values=project-subnet-public1-us-east-1a \
+      --query "Subnets[0].SubnetId" \
+      --output text)
+    echo $SUBNET
+
