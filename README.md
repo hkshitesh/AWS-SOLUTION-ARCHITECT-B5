@@ -26,3 +26,19 @@
       --output text)
     echo $SUBNET
 
+## EC2- Command
+
+    INSTANCE=$(aws ec2 run-instances \
+      --image-id $AMI \
+      --instance-type t2.micro \
+      --key-name hitesh-lab-key \
+      --security-group-ids $SG \
+      --subnet-id $SUBNET \
+      --associate-public-ip-address \
+      --iam-instance-profile Name=EC2-S3-Profile \
+      --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Ubuntu-S3-Lab}]' \
+      --query "Instances[0].InstanceId" \
+      --output text)
+    
+    echo $INSTANCE
+
