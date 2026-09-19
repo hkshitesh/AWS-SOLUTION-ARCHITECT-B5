@@ -13,10 +13,10 @@ sudo ./aws/install
 
 ## DAY-5 Commands
 
-VPC=$(aws ec2 describe-vpcs \
-  --filters Name=tag:Name,Values=project-vpc \
-  --query "Vpcs[0].VpcId" \
-  --output text)
-echo $VPC
+    VPC=$(aws ec2 describe-vpcs \
+      --filters Name=tag:Name,Values=project-vpc \
+      --query "Vpcs[0].VpcId" \
+      --output text)
+    echo $VPC
 
 
